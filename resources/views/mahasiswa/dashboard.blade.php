@@ -55,11 +55,11 @@
                             @if($b->foto)
                                 <img src="{{ asset('storage/' . $b->foto) }}" alt="{{ $b->nama_beasiswa }}" class="w-full h-full object-cover">
                             @else
-                                <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-blue-50">
-                                    <svg class="w-16 h-16 text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-yellow-50 to-blue-50">
+                                    <svg class="w-16 h-16 text-yellow-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                                 </div>
                             @endif
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-indigo-700 shadow-sm">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-yellow-700 shadow-sm">
                                 {{ $b->penyedia }}
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                 @if($pendaftarans->whereIn('status_verifikasi', ['MENUNGGU', 'SEDANG DITINJAU'])->count() > 0)
                                     <button type="button" class="w-full bg-gray-100 text-gray-400 py-2.5 rounded-lg font-medium text-sm cursor-not-allowed" disabled>Sedang Memiliki Antrean Verifikasi</button>
                                 @else
-                                    <button type="button" @click="openRegisterModal('{{ $b->id }}', '{{ addslashes($b->nama_beasiswa) }}')" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-lg font-medium text-sm transition-colors shadow-sm flex justify-center items-center gap-2">
+                                    <button type="button" @click="openRegisterModal('{{ $b->id }}', '{{ addslashes($b->nama_beasiswa) }}')" class="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 py-2.5 rounded-lg font-medium text-sm transition-colors shadow-sm flex justify-center items-center gap-2">
                                         Daftar Beasiswa Ini
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                     </button>
@@ -103,13 +103,13 @@
             
             <!-- Kolom Kanan: Info -->
             <div class="space-y-6">
-                <div class="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-xl shadow-md p-6 text-white">
+                <div class="bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-xl shadow-md p-6 text-white">
                     <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         Pusat Bantuan
                     </h3>
-                    <p class="text-sm text-indigo-100 mb-4 leading-relaxed">Mengalami kendala saat melengkapi berkas pendaftaran? Tim layanan akademik kami siap membantu Anda.</p>
-                    <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white text-indigo-700 rounded-lg text-sm font-bold hover:bg-gray-50 transition-colors w-full shadow-sm">
+                    <p class="text-sm text-yellow-100 mb-4 leading-relaxed">Mengalami kendala saat melengkapi berkas pendaftaran? Tim layanan akademik kami siap membantu Anda.</p>
+                    <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white text-yellow-700 rounded-lg text-sm font-bold hover:bg-gray-50 transition-colors w-full shadow-sm">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                         Hubungi Bantuan
                     </a>
@@ -123,12 +123,12 @@
                 <div x-show="registerOpen" class="fixed inset-0 transition-opacity bg-gray-900/75 backdrop-blur-sm" @click="registerOpen = false"></div>
                 
                 <div x-show="registerOpen" class="relative inline-block w-full max-w-2xl overflow-hidden align-middle transition-all transform bg-white rounded-2xl shadow-xl">
-                    <div class="px-6 py-4 border-b border-gray-100 bg-indigo-600 flex justify-between items-center">
+                    <div class="px-6 py-4 border-b border-gray-100 bg-yellow-600 flex justify-between items-center">
                         <h3 class="text-lg font-bold text-white flex items-center gap-2">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                             Formulir Pendaftaran
                         </h3>
-                        <button type="button" @click="registerOpen = false" class="text-indigo-100 hover:text-white transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                        <button type="button" @click="registerOpen = false" class="text-yellow-100 hover:text-white transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
                     </div>
                     <form action="{{ route('mhs.pendaftaran.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -138,11 +138,11 @@
 
                         <div class="p-6 max-h-[75vh] overflow-y-auto">
                             
-                            <div class="mb-6 bg-indigo-50 border border-indigo-100 rounded-lg p-4 flex gap-3">
-                                <svg class="w-6 h-6 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="mb-6 bg-yellow-50 border border-yellow-100 rounded-lg p-4 flex gap-3">
+                                <svg class="w-6 h-6 text-yellow-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <div>
                                     <h4 class="text-sm font-bold text-indigo-900">Beasiswa yang Dipilih:</h4>
-                                    <p class="text-sm text-indigo-700" x-text="selectedBeasiswaName"></p>
+                                    <p class="text-sm text-yellow-700" x-text="selectedBeasiswaName"></p>
                                 </div>
                             </div>
 
@@ -169,7 +169,7 @@
 
                                 <div>
                                     <x-input-label for="jenis_kelamin" value="Jenis Kelamin" />
-                                    <select id="jenis_kelamin" name="jenis_kelamin" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" required>
+                                    <select id="jenis_kelamin" name="jenis_kelamin" class="mt-1 block w-full border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm" required>
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
@@ -192,15 +192,15 @@
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div>
                                         <x-input-label for="sktm" value="Surat Ket. Tidak Mampu" />
-                                        <input type="file" id="sktm" name="sktm" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required>
+                                        <input type="file" id="sktm" name="sktm" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
                                     </div>
                                     <div>
                                         <x-input-label for="rekomendasi" value="Surat Rekomendasi" />
-                                        <input type="file" id="rekomendasi" name="rekomendasi" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required>
+                                        <input type="file" id="rekomendasi" name="rekomendasi" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
                                     </div>
                                     <div>
                                         <x-input-label for="transkrip" value="Transkrip Nilai" />
-                                        <input type="file" id="transkrip" name="transkrip" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required>
+                                        <input type="file" id="transkrip" name="transkrip" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
                                     </div>
                                 </div>
                             </div>

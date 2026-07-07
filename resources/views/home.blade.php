@@ -13,17 +13,17 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16 items-center">
                     <div class="flex items-center gap-3">
-                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                        <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
                         <span class="font-bold text-xl text-gray-900 tracking-tight">UNIVERSITAS KUNINGAN</span>
                     </div>
                     <nav class="flex gap-4">
                         @if (Route::has('login'))
                             @auth
-                                <a href="{{ route('dashboard') }}" class="font-semibold text-gray-600 hover:text-indigo-600 px-4 py-2">Dashboard</a>
+                                <a href="{{ route('dashboard') }}" class="font-semibold text-gray-600 hover:text-yellow-600 px-4 py-2">Dashboard</a>
                             @else
-                                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-indigo-600 px-4 py-2">Log in</a>
+                                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-yellow-600 px-4 py-2">Log in</a>
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="font-semibold bg-indigo-600 text-white rounded-lg px-4 py-2 hover:bg-indigo-700 transition-colors">Register</a>
+                                    <a href="{{ route('register') }}" class="font-semibold bg-yellow-500 text-gray-900 rounded-lg px-4 py-2 hover:bg-yellow-700 transition-colors">Register</a>
                                 @endif
                             @endauth
                         @endif
@@ -33,13 +33,13 @@
         </header>
 
         <main>
-            <div class="relative bg-gradient-to-br from-indigo-900 to-indigo-700 overflow-hidden">
+            <div class="relative bg-gradient-to-br from-yellow-600 to-yellow-700 overflow-hidden">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col items-center text-center relative z-10">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
                         Wujudkan Mimpimu <br/>
                         <span class="text-yellow-400">Bersama Beasiswa UNIKU</span>
                     </h1>
-                    <p class="max-w-2xl text-lg md:text-xl text-indigo-100 mb-10">
+                    <p class="max-w-2xl text-lg md:text-xl text-yellow-100 mb-10">
                         Kami mendukung penuh prestasi dan semangat belajarmu. Dapatkan akses beasiswa terbaik yang ditawarkan oleh Universitas Kuningan.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -53,7 +53,7 @@
                 </div>
                 <!-- Decorative Elements -->
                 <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20 pointer-events-none">
-                    <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-indigo-500 blur-3xl"></div>
+                    <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-yellow-500 blur-3xl"></div>
                     <div class="absolute bottom-10 right-10 w-64 h-64 rounded-full bg-yellow-400 blur-3xl"></div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                                         <span class="text-sm font-medium">No Image</span>
                                     </div>
                                 @endif
-                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-indigo-700 shadow-sm">
+                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-yellow-700 shadow-sm">
                                     {{ \Carbon\Carbon::parse($p->tanggal)->translatedFormat('d M Y') }}
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                 <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">{{ $p->judul }}</h3>
                                 <p class="text-gray-600 mb-6 flex-1 line-clamp-3 text-sm leading-relaxed">{{ $p->isi }}</p>
                                 
-                                <button @click="open = true" class="mt-auto w-full bg-indigo-50 text-indigo-700 px-4 py-3 rounded-xl font-semibold hover:bg-indigo-100 transition-colors flex items-center justify-center gap-2">
+                                <button @click="open = true" class="mt-auto w-full bg-yellow-50 text-yellow-700 px-4 py-3 rounded-xl font-semibold hover:bg-yellow-100 transition-colors flex items-center justify-center gap-2">
                                     Baca Selengkapnya
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                 </button>
@@ -97,14 +97,14 @@
                                     <div x-show="open" x-transition.opacity class="fixed inset-0 bg-gray-900/75 backdrop-blur-sm transition-opacity" aria-hidden="true" @click="open = false"></div>
                                     <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                                     <div x-show="open" x-transition class="relative inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full w-full mx-4">
-                                        <div class="bg-indigo-600 px-6 py-4 flex justify-between items-center">
+                                        <div class="bg-yellow-600 px-6 py-4 flex justify-between items-center">
                                             <h3 class="text-lg leading-6 font-bold text-white" id="modal-title">{{ $p->judul }}</h3>
-                                            <button @click="open = false" class="text-indigo-200 hover:text-white transition-colors">
+                                            <button @click="open = false" class="text-yellow-200 hover:text-white transition-colors">
                                                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                             </button>
                                         </div>
                                         <div class="bg-white px-6 py-6 sm:p-8">
-                                            <div class="text-sm text-indigo-600 font-semibold mb-6">Dipublikasikan: {{ \Carbon\Carbon::parse($p->tanggal)->translatedFormat('d M Y') }}</div>
+                                            <div class="text-sm text-yellow-600 font-semibold mb-6">Dipublikasikan: {{ \Carbon\Carbon::parse($p->tanggal)->translatedFormat('d M Y') }}</div>
                                             @if($p->gambar)
                                                 <div class="mb-8 rounded-xl overflow-hidden shadow-sm">
                                                     <img class="w-full h-auto max-h-[400px] object-cover" src="{{ asset('storage/' . $p->gambar) }}" alt="{{ $p->judul }}">
@@ -113,7 +113,7 @@
                                             <div class="prose prose-indigo max-w-none text-gray-700 leading-relaxed whitespace-pre-wrap">{{ $p->isi }}</div>
                                         </div>
                                         <div class="bg-gray-50 px-6 py-4 sm:flex sm:flex-row-reverse border-t border-gray-100">
-                                            <button type="button" class="w-full inline-flex justify-center rounded-xl border border-transparent shadow-sm px-6 py-2.5 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm transition-colors" @click="open = false">
+                                            <button type="button" class="w-full inline-flex justify-center rounded-xl border border-transparent shadow-sm px-6 py-2.5 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:ml-3 sm:w-auto sm:text-sm transition-colors" @click="open = false">
                                                 Tutup
                                             </button>
                                         </div>

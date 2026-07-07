@@ -7,7 +7,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8" x-data="{ open: false }">
         <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50 cursor-pointer" @click="open = !open">
             <h3 class="text-lg font-bold text-gray-900 flex items-center gap-2">
-                <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                 Tambah Beasiswa Baru
             </h3>
             <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -27,11 +27,11 @@
                     </div>
                     <div class="md:col-span-2">
                         <x-input-label for="deskripsi" value="Deskripsi" />
-                        <textarea id="deskripsi" name="deskripsi" rows="4" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" required></textarea>
+                        <textarea id="deskripsi" name="deskripsi" rows="4" class="mt-1 block w-full border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm" required></textarea>
                     </div>
                     <div class="md:col-span-2">
                         <x-input-label for="foto" value="Foto Banner (Opsional)" />
-                        <input id="foto" name="foto" type="file" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
+                        <input id="foto" name="foto" type="file" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" />
                     </div>
                 </div>
                 <div class="flex justify-end">
@@ -53,7 +53,7 @@
                 
                 <div class="p-5 flex-1 flex flex-col">
                     <h4 class="text-xl font-bold text-gray-900 mb-1">{{ $b->nama_beasiswa }}</h4>
-                    <p class="text-sm font-medium text-indigo-600 mb-3">{{ $b->penyedia }}</p>
+                    <p class="text-sm font-medium text-yellow-600 mb-3">{{ $b->penyedia }}</p>
                     <p class="text-gray-600 text-sm flex-1 mb-4">{{ Str::limit($b->deskripsi, 100) }}</p>
                     
                     <div class="flex gap-2 mt-auto pt-4 border-t border-gray-100">
@@ -90,11 +90,11 @@
                                     </div>
                                     <div class="md:col-span-2">
                                         <x-input-label for="deskripsi_{{ $b->id }}" value="Deskripsi" />
-                                        <textarea id="deskripsi_{{ $b->id }}" name="deskripsi" rows="4" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" required>{{ $b->deskripsi }}</textarea>
+                                        <textarea id="deskripsi_{{ $b->id }}" name="deskripsi" rows="4" class="mt-1 block w-full border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm" required>{{ $b->deskripsi }}</textarea>
                                     </div>
                                     <div class="md:col-span-2">
                                         <x-input-label for="foto_{{ $b->id }}" value="Ganti Foto (Opsional)" />
-                                        <input id="foto_{{ $b->id }}" name="foto" type="file" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
+                                        <input id="foto_{{ $b->id }}" name="foto" type="file" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" />
                                     </div>
                                 </div>
                                 <div class="px-6 py-4 bg-gray-50 flex justify-end gap-3 rounded-b-2xl">

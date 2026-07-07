@@ -17,7 +17,7 @@
     <body class="font-sans antialiased bg-gray-100 flex overflow-hidden h-screen">
         <!-- Sidebar -->
         <aside class="w-64 bg-white border-r border-gray-200 flex flex-col h-full hidden md:flex shrink-0 shadow-sm z-10">
-            <div class="h-16 flex items-center px-6 border-b border-gray-200 bg-indigo-600">
+            <div class="h-16 flex items-center px-6 border-b border-gray-200 bg-yellow-600">
                 <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
                     Beasiswa UNIKU
@@ -26,13 +26,13 @@
             
             <nav class="flex-1 px-4 py-4 space-y-2 overflow-y-auto">
                 @if(auth()->user()->role === 'admin')
-                    <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('admin.dashboard') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700 hover:bg-gray-100' }}">Dashboard</a>
-                    <a href="{{ route('admin.beasiswa.index') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('admin.beasiswa.*') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700 hover:bg-gray-100' }}">Kelola Beasiswa</a>
-                    <a href="{{ route('admin.pengumuman.index') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('admin.pengumuman.*') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700 hover:bg-gray-100' }}">Kelola Pengumuman</a>
-                    <a href="{{ route('admin.pendaftaran.index') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('admin.pendaftaran.*') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700 hover:bg-gray-100' }}">Pendaftar & Verifikasi</a>
+                    <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('admin.dashboard') ? 'bg-yellow-50 text-yellow-700' : 'text-gray-700 hover:bg-gray-100' }}">Dashboard</a>
+                    <a href="{{ route('admin.beasiswa.index') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('admin.beasiswa.*') ? 'bg-yellow-50 text-yellow-700' : 'text-gray-700 hover:bg-gray-100' }}">Kelola Beasiswa</a>
+                    <a href="{{ route('admin.pengumuman.index') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('admin.pengumuman.*') ? 'bg-yellow-50 text-yellow-700' : 'text-gray-700 hover:bg-gray-100' }}">Kelola Pengumuman</a>
+                    <a href="{{ route('admin.pendaftaran.index') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('admin.pendaftaran.*') ? 'bg-yellow-50 text-yellow-700' : 'text-gray-700 hover:bg-gray-100' }}">Pendaftar & Verifikasi</a>
                 @else
-                    <a href="{{ route('mhs.dashboard') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('mhs.dashboard') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700 hover:bg-gray-100' }}">Dashboard</a>
-                    <a href="{{ route('mhs.pendaftaran.index') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('mhs.pendaftaran.*') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700 hover:bg-gray-100' }}">Riwayat Pendaftaran</a>
+                    <a href="{{ route('mhs.dashboard') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('mhs.dashboard') ? 'bg-yellow-50 text-yellow-700' : 'text-gray-700 hover:bg-gray-100' }}">Dashboard</a>
+                    <a href="{{ route('mhs.pendaftaran.index') }}" class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('mhs.pendaftaran.*') ? 'bg-yellow-50 text-yellow-700' : 'text-gray-700 hover:bg-gray-100' }}">Riwayat Pendaftaran</a>
                 @endif
             </nav>
         </aside>
@@ -42,7 +42,7 @@
             <!-- Topbar -->
             <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6 shrink-0 z-10">
                 <div class="flex items-center">
-                    <button class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md p-2 mr-4">
+                    <button class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 rounded-md p-2 mr-4">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -68,9 +68,11 @@
                         </x-slot>
 
                         <x-slot name="content">
+                            @if(auth()->user()->role === 'mahasiswa')
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
+                            @endif
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
