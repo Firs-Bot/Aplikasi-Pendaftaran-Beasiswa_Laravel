@@ -2,10 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
-use App\Http\Controllers\Admin\BeasiswaController;
-use App\Http\Controllers\Admin\PengumumanController;
-use App\Http\Controllers\Admin\PendaftaranController as AdminPendaftaran;
 use App\Http\Controllers\Mahasiswa\DashboardController as MahasiswaDashboard;
 use App\Http\Controllers\Mahasiswa\PendaftaranController as MahasiswaPendaftaran;
 use Illuminate\Support\Facades\Route;
@@ -21,17 +17,36 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         if (auth()->user()->role === 'admin') {
             return redirect()->route('admin.dashboard');
+        } elseif (auth()->user()->role === 'baak') {
+            return redirect()->route('baak.dashboard');
         }
         return redirect()->route('mhs.dashboard');
     })->name('dashboard');
 
-    // Admin Routes
+    // Admin Routes (Super Admin)
     Route::middleware('can:admin')->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
-        Route::resource('beasiswa', BeasiswaController::class);
-        Route::resource('pengumuman', PengumumanController::class);
-        Route::get('/pendaftaran/pdf', [AdminPendaftaran::class, 'exportPdf'])->name('pendaftaran.pdf');
-        Route::resource('pendaftaran', AdminPendaftaran::class)->only(['index', 'update']);
+        Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+        
+        Route::get('/users', [\App\Http\Controllers\Admin\DashboardController::class, 'users'])->name('users.index');
+        Route::delete('/users/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'destroyUser'])->name('users.destroy');
+        
+        Route::get('/beasiswa', [\App\Http\Controllers\Admin\DashboardController::class, 'beasiswas'])->name('beasiswa.index');
+        Route::delete('/beasiswa/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'destroyBeasiswa'])->name('beasiswa.destroy');
+        
+        Route::get('/pengumuman', [\App\Http\Controllers\Admin\DashboardController::class, 'pengumumans'])->name('pengumuman.index');
+        Route::delete('/pengumuman/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'destroyPengumuman'])->name('pengumuman.destroy');
+        
+        Route::get('/pendaftaran', [\App\Http\Controllers\Admin\DashboardController::class, 'pendaftarans'])->name('pendaftaran.index');
+        Route::delete('/pendaftaran/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'destroyPendaftaran'])->name('pendaftaran.destroy');
+    });
+
+    // BAAK Routes
+    Route::middleware('can:baak')->prefix('baak')->name('baak.')->group(function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Baak\DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('beasiswa', \App\Http\Controllers\Baak\BeasiswaController::class);
+        Route::resource('pengumuman', \App\Http\Controllers\Baak\PengumumanController::class);
+        Route::get('/pendaftaran/pdf', [\App\Http\Controllers\Baak\PendaftaranController::class, 'exportPdf'])->name('pendaftaran.pdf');
+        Route::resource('pendaftaran', \App\Http\Controllers\Baak\PendaftaranController::class)->only(['index', 'update']);
     });
 
     // Mahasiswa Routes

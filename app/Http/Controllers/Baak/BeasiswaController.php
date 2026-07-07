@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Baak;
 use App\Http\Controllers\Controller;
 use App\Models\Beasiswa;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class BeasiswaController extends Controller {
     public function index() {
         $beasiswas = Beasiswa::latest()->get();
-        return view('admin.beasiswa.index', compact('beasiswas'));
+        return view('baak.beasiswa.index', compact('beasiswas'));
     }
     public function store(Request $request) {
         $validated = $request->validate([
@@ -21,7 +21,7 @@ class BeasiswaController extends Controller {
             $validated['foto'] = $request->file('foto')->store('uploads', 'public');
         }
         Beasiswa::create($validated);
-        return redirect()->route('admin.beasiswa.index')->with('success', 'Beasiswa berhasil ditambahkan.');
+        return redirect()->route('baak.beasiswa.index')->with('success', 'Beasiswa berhasil ditambahkan.');
     }
     public function update(Request $request, Beasiswa $beasiswa) {
         $validated = $request->validate([
@@ -35,11 +35,11 @@ class BeasiswaController extends Controller {
             $validated['foto'] = $request->file('foto')->store('uploads', 'public');
         }
         $beasiswa->update($validated);
-        return redirect()->route('admin.beasiswa.index')->with('success', 'Beasiswa berhasil diperbarui.');
+        return redirect()->route('baak.beasiswa.index')->with('success', 'Beasiswa berhasil diperbarui.');
     }
     public function destroy(Beasiswa $beasiswa) {
         if($beasiswa->foto) Storage::disk('public')->delete($beasiswa->foto);
         $beasiswa->delete();
-        return redirect()->route('admin.beasiswa.index')->with('success', 'Beasiswa berhasil dihapus.');
+        return redirect()->route('baak.beasiswa.index')->with('success', 'Beasiswa berhasil dihapus.');
     }
 }

@@ -45,20 +45,24 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming admin authentication request.
+     * Handle an incoming staff (admin/baak) authentication request.
      */
     public function storeAdmin(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
         
-        if (Auth::user()->role !== 'admin') {
+        if (!in_array(Auth::user()->role, ['admin', 'baak'])) {
             Auth::guard('web')->logout();
-            return back()->withErrors(['nim_username' => 'Akun ini bukan administrator.']);
+            return back()->withErrors(['nim_username' => 'Akun ini bukan administrator atau staf BAAK.']);
         }
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.dashboard', absolute: false));
+        if (Auth::user()->role === 'admin') {
+            return redirect()->intended(route('admin.dashboard', absolute: false));
+        }
+        
+        return redirect()->intended(route('baak.dashboard', absolute: false));
     }
 
     /**

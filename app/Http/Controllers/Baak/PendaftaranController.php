@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Baak;
 use App\Http\Controllers\Controller;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class PendaftaranController extends Controller {
         
         $pendaftarans = $query->get();
         
-        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('admin.pendaftaran.pdf', compact('pendaftarans', 'filter'));
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('baak.pendaftaran.pdf', compact('pendaftarans', 'filter'));
         
         // Atur ukuran kertas dan orientasi
         $pdf->setPaper('A4', 'landscape');
@@ -35,7 +35,7 @@ class PendaftaranController extends Controller {
             $query->where('status_verifikasi', $filter);
         }
         $pendaftarans = $query->get();
-        return view('admin.pendaftaran.index', compact('pendaftarans', 'filter'));
+        return view('baak.pendaftaran.index', compact('pendaftarans', 'filter'));
     }
     public function update(Request $request, Pendaftaran $pendaftaran) {
         $request->validate([

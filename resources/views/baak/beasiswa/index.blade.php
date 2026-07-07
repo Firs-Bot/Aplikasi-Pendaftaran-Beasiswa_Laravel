@@ -14,7 +14,7 @@
         </div>
         
         <div x-show="open" class="p-6" x-transition>
-            <form action="{{ route('admin.beasiswa.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('baak.beasiswa.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
@@ -58,7 +58,7 @@
                     
                     <div class="flex gap-2 mt-auto pt-4 border-t border-gray-100">
                         <button @click="editOpen = true" class="flex-1 bg-yellow-50 text-yellow-700 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-100 transition-colors text-center">Edit</button>
-                        <form action="{{ route('admin.beasiswa.destroy', $b->id) }}" method="POST" class="flex-1" onsubmit="return confirm('Hapus beasiswa ini? Pendaftar terkait akan ikut terhapus.')">
+                        <form action="{{ route('baak.beasiswa.destroy', $b->id) }}" method="POST" class="flex-1" onsubmit="return confirm('Hapus beasiswa ini? Pendaftar terkait akan ikut terhapus.')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="w-full bg-red-50 text-red-700 py-2 rounded-lg text-sm font-semibold hover:bg-red-100 transition-colors">Hapus</button>
@@ -76,7 +76,7 @@
                                 <h3 class="text-lg font-bold text-gray-900">Edit Beasiswa</h3>
                                 <button @click="editOpen = false" class="text-gray-400 hover:text-gray-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
                             </div>
-                            <form action="{{ route('admin.beasiswa.update', $b->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('baak.beasiswa.update', $b->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -14,7 +14,7 @@
         </div>
         
         <div x-show="open" class="p-6" x-transition>
-            <form action="{{ route('admin.pengumuman.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('baak.pengumuman.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="space-y-6">
                     <div>
@@ -68,7 +68,7 @@
                             <td class="px-6 py-4 text-center">
                                 <div class="flex items-center justify-center gap-2">
                                     <button @click="editOpen = true" class="text-yellow-600 hover:text-yellow-900 bg-yellow-50 hover:bg-yellow-100 px-3 py-1.5 rounded-md text-sm font-medium transition-colors">Edit</button>
-                                    <form action="{{ route('admin.pengumuman.destroy', $p->id) }}" method="POST" onsubmit="return confirm('Hapus pengumuman ini?')">
+                                    <form action="{{ route('baak.pengumuman.destroy', $p->id) }}" method="POST" onsubmit="return confirm('Hapus pengumuman ini?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-md text-sm font-medium transition-colors">Hapus</button>
@@ -85,7 +85,7 @@
                                                 <h3 class="text-lg font-bold text-gray-900">Edit Pengumuman</h3>
                                                 <button @click="editOpen = false" class="text-gray-400 hover:text-gray-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
                                             </div>
-                                            <form action="{{ route('admin.pengumuman.update', $p->id) }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('baak.pengumuman.update', $p->id) }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="p-6 space-y-4">

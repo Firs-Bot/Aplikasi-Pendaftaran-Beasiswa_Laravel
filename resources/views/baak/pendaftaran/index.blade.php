@@ -5,7 +5,7 @@
 
     <!-- Filter -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-6 p-4">
-        <form action="{{ route('admin.pendaftaran.index') }}" method="GET" class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <form action="{{ route('baak.pendaftaran.index') }}" method="GET" class="flex flex-col sm:flex-row items-center justify-between gap-4">
             <h3 class="text-lg font-bold text-gray-900">Data Pendaftar Beasiswa</h3>
             <div class="flex items-center gap-3">
                 <label for="filter" class="font-medium text-gray-700 text-sm">Filter Status:</label>
@@ -16,7 +16,7 @@
                     <option value="LOLOS" {{ $filter === 'LOLOS' ? 'selected' : '' }}>Lolos</option>
                     <option value="DITOLAK" {{ $filter === 'DITOLAK' ? 'selected' : '' }}>Ditolak</option>
                 </select>
-                <a href="{{ route('admin.pendaftaran.pdf', ['filter' => $filter]) }}" target="_blank" class="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-4 py-2 rounded-md text-sm font-semibold shadow-sm transition-colors">
+                <a href="{{ route('baak.pendaftaran.pdf', ['filter' => $filter]) }}" target="_blank" class="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-4 py-2 rounded-md text-sm font-semibold shadow-sm transition-colors">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                     Cetak PDF
                 </a>
@@ -150,7 +150,7 @@
                                                         </div>
                                                     @else
                                                         <p class="font-bold text-gray-900 mb-4">Tentukan Keputusan Status:</p>
-                                                        <form action="{{ route('admin.pendaftaran.update', $p->id) }}" method="POST" class="flex flex-wrap justify-center gap-3">
+                                                        <form action="{{ route('baak.pendaftaran.update', $p->id) }}" method="POST" class="flex flex-wrap justify-center gap-3">
                                                             @csrf
                                                             @method('PUT')
                                                             <button type="submit" name="status_verifikasi" value="SEDANG DITINJAU" class="px-6 py-2.5 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg font-bold shadow-sm transition-colors">⚠️ Sedang Ditinjau</button>
