@@ -67,6 +67,17 @@
                                                     <x-text-input id="edit_email_{{ $p->id }}" name="email" type="email" class="mt-1 block w-full" :value="$p->email" required />
                                                 </div>
                                                 
+                                                <div>
+                                                    <x-input-label for="edit_penghasilan_{{ $p->id }}" value="Penghasilan Orang Tua" />
+                                                    <select id="edit_penghasilan_{{ $p->id }}" name="penghasilan_ortu" class="mt-1 block w-full border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm" required>
+                                                        <option value="< 500000" {{ $p->penghasilan_ortu == '< 500000' ? 'selected' : '' }}>< Rp 500.000</option>
+                                                        <option value="500000 - 1000000" {{ $p->penghasilan_ortu == '500000 - 1000000' ? 'selected' : '' }}>Rp 500.000 - Rp 1.000.000</option>
+                                                        <option value="1000000 - 1500000" {{ $p->penghasilan_ortu == '1000000 - 1500000' ? 'selected' : '' }}>Rp 1.000.000 - Rp 1.500.000</option>
+                                                        <option value="1500000 - 2000000" {{ $p->penghasilan_ortu == '1500000 - 2000000' ? 'selected' : '' }}>Rp 1.500.000 - Rp 2.000.000</option>
+                                                        <option value="> 2000000" {{ $p->penghasilan_ortu == '> 2000000' ? 'selected' : '' }}>> Rp 2.000.000</option>
+                                                    </select>
+                                                </div>
+                                                
                                                 <div class="bg-yellow-50 p-4 rounded-lg text-sm text-yellow-800 border border-yellow-100">
                                                     <div class="flex gap-2">
                                                         <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -85,6 +96,26 @@
                                                 <div>
                                                     <x-input-label for="edit_transkrip_{{ $p->id }}" value="Transkrip Nilai Baru (PDF, Maks 2MB)" />
                                                     <input type="file" id="edit_transkrip_{{ $p->id }}" name="transkrip" accept="application/pdf" class="mt-1 block w-full text-sm">
+                                                </div>
+                                                <div>
+                                                    <x-input-label for="edit_aktif_kuliah_{{ $p->id }}" value="Surat Ket. Aktif Kuliah Baru (PDF, Maks 2MB)" />
+                                                    <input type="file" id="edit_aktif_kuliah_{{ $p->id }}" name="aktif_kuliah" accept="application/pdf" class="mt-1 block w-full text-sm">
+                                                </div>
+                                                <div>
+                                                    <x-input-label for="edit_ktp_{{ $p->id }}" value="KTP Baru (PDF, Maks 2MB)" />
+                                                    <input type="file" id="edit_ktp_{{ $p->id }}" name="ktp" accept="application/pdf" class="mt-1 block w-full text-sm">
+                                                </div>
+                                                <div>
+                                                    <x-input-label for="edit_ktm_{{ $p->id }}" value="KTM Baru (PDF, Maks 2MB)" />
+                                                    <input type="file" id="edit_ktm_{{ $p->id }}" name="ktm" accept="application/pdf" class="mt-1 block w-full text-sm">
+                                                </div>
+                                                <div>
+                                                    <x-input-label for="edit_krs_{{ $p->id }}" value="KRS Baru (PDF, Maks 2MB)" />
+                                                    <input type="file" id="edit_krs_{{ $p->id }}" name="krs" accept="application/pdf" class="mt-1 block w-full text-sm">
+                                                </div>
+                                                <div>
+                                                    <x-input-label for="edit_tidak_menerima_beasiswa_{{ $p->id }}" value="Surat Ket. Tidak Menerima Beasiswa Lain (PDF, Maks 2MB)" />
+                                                    <input type="file" id="edit_tidak_menerima_beasiswa_{{ $p->id }}" name="tidak_menerima_beasiswa" accept="application/pdf" class="mt-1 block w-full text-sm">
                                                 </div>
                                             </div>
                                             <div class="px-6 py-4 bg-gray-50 flex justify-end gap-3 rounded-b-2xl border-t border-gray-100">

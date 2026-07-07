@@ -80,7 +80,7 @@
                                             
                                             <div class="p-6">
                                                 <!-- Info Pribadi -->
-                                                <div class="bg-gray-50 rounded-xl p-5 mb-6 grid grid-cols-2 md:grid-cols-4 gap-4 border border-gray-100">
+                                                <div class="bg-gray-50 rounded-xl p-5 mb-6 grid grid-cols-2 md:grid-cols-5 gap-4 border border-gray-100">
                                                     <div>
                                                         <div class="text-xs text-gray-500 mb-1">NIM</div>
                                                         <div class="font-semibold text-gray-900">{{ $p->nim }}</div>
@@ -97,6 +97,10 @@
                                                         <div class="text-xs text-gray-500 mb-1">No HP</div>
                                                         <div class="font-semibold text-gray-900 text-sm">{{ $p->no_hp }}</div>
                                                     </div>
+                                                    <div>
+                                                        <div class="text-xs text-gray-500 mb-1">Penghasilan Ortu</div>
+                                                        <div class="font-semibold text-gray-900 text-sm">{{ $p->penghasilan_ortu ?? '-' }}</div>
+                                                    </div>
                                                 </div>
 
                                                 <!-- Dokumen Lampiran -->
@@ -111,6 +115,31 @@
                                                     <a href="{{ asset('storage/' . $p->file_transkrip) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Transkrip
                                                     </a>
+                                                    @if($p->file_aktif_kuliah)
+                                                    <a href="{{ asset('storage/' . $p->file_aktif_kuliah) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Aktif Kuliah
+                                                    </a>
+                                                    @endif
+                                                    @if($p->file_ktp)
+                                                    <a href="{{ asset('storage/' . $p->file_ktp) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> KTP
+                                                    </a>
+                                                    @endif
+                                                    @if($p->file_ktm)
+                                                    <a href="{{ asset('storage/' . $p->file_ktm) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> KTM
+                                                    </a>
+                                                    @endif
+                                                    @if($p->file_krs)
+                                                    <a href="{{ asset('storage/' . $p->file_krs) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> KRS
+                                                    </a>
+                                                    @endif
+                                                    @if($p->file_tidak_menerima_beasiswa)
+                                                    <a href="{{ asset('storage/' . $p->file_tidak_menerima_beasiswa) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Tdk. Mnrima Beasiswa
+                                                    </a>
+                                                    @endif
                                                 </div>
 
                                                 <!-- Aksi Verifikasi -->

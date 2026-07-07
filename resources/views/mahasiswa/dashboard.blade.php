@@ -185,11 +185,23 @@
                                     <x-input-label for="ipk" value="IPK Terakhir" />
                                     <x-text-input id="ipk" name="ipk" type="number" step="0.01" min="0" max="4" class="mt-1 block w-full md:w-1/2" required />
                                 </div>
+                                
+                                <div class="md:col-span-2">
+                                    <x-input-label for="penghasilan_ortu" value="Penghasilan Orang Tua" />
+                                    <select id="penghasilan_ortu" name="penghasilan_ortu" class="mt-1 block w-full md:w-1/2 border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm" required>
+                                        <option value="">-- Pilih Penghasilan Orang Tua --</option>
+                                        <option value="< 500000">< Rp 500.000</option>
+                                        <option value="500000 - 1000000">Rp 500.000 - Rp 1.000.000</option>
+                                        <option value="1000000 - 1500000">Rp 1.000.000 - Rp 1.500.000</option>
+                                        <option value="1500000 - 2000000">Rp 1.500.000 - Rp 2.000.000</option>
+                                        <option value="> 2000000">> Rp 2.000.000</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="bg-gray-50 -mx-6 px-6 py-4 border-t border-b border-gray-100">
                                 <h4 class="font-bold text-gray-900 mb-4">Upload Berkas Persyaratan (Wajib PDF, Maks 2MB)</h4>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <x-input-label for="sktm" value="Surat Ket. Tidak Mampu" />
                                         <input type="file" id="sktm" name="sktm" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
@@ -201,6 +213,26 @@
                                     <div>
                                         <x-input-label for="transkrip" value="Transkrip Nilai" />
                                         <input type="file" id="transkrip" name="transkrip" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
+                                    </div>
+                                    <div>
+                                        <x-input-label for="aktif_kuliah" value="Surat Ket. Aktif Kuliah" />
+                                        <input type="file" id="aktif_kuliah" name="aktif_kuliah" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
+                                    </div>
+                                    <div>
+                                        <x-input-label for="ktp" value="KTP" />
+                                        <input type="file" id="ktp" name="ktp" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
+                                    </div>
+                                    <div>
+                                        <x-input-label for="ktm" value="KTM" />
+                                        <input type="file" id="ktm" name="ktm" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
+                                    </div>
+                                    <div>
+                                        <x-input-label for="krs" value="KRS" />
+                                        <input type="file" id="krs" name="krs" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
+                                    </div>
+                                    <div>
+                                        <x-input-label for="tidak_menerima_beasiswa" value="Surat Ket. Tidak Menerima Beasiswa Lain" />
+                                        <input type="file" id="tidak_menerima_beasiswa" name="tidak_menerima_beasiswa" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
                                     </div>
                                 </div>
                             </div>
