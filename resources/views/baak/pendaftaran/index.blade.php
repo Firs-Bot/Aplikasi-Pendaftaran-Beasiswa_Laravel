@@ -32,7 +32,7 @@
                     <tr class="bg-gray-50 text-gray-700 border-b border-gray-200">
                         <th class="px-6 py-4 font-semibold text-sm">Nama Pendaftar</th>
                         <th class="px-6 py-4 font-semibold text-sm">Beasiswa</th>
-                        <th class="px-6 py-4 font-semibold text-sm">Jurusan / IPK</th>
+                        <th class="px-6 py-4 font-semibold text-sm">Jurusan</th>
                         <th class="px-6 py-4 font-semibold text-sm text-center">Status</th>
                         <th class="px-6 py-4 font-semibold text-sm text-center">Aksi</th>
                     </tr>
@@ -55,7 +55,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="text-sm text-gray-700">{{ $p->jurusan }}</div>
-                                <div class="text-xs font-bold text-yellow-600">IPK: {{ $p->ipk }}</div>
+
                             </td>
                             <td class="px-6 py-4 text-center">
                                 <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold {{ $badgeColor }}">
@@ -86,8 +86,7 @@
                                                         <div class="font-semibold text-gray-900">{{ $p->nim }}</div>
                                                     </div>
                                                     <div>
-                                                        <div class="text-xs text-gray-500 mb-1">IPK</div>
-                                                        <div class="font-bold text-yellow-600">{{ $p->ipk }}</div>
+
                                                     </div>
                                                     <div>
                                                         <div class="text-xs text-gray-500 mb-1">Email</div>
@@ -109,9 +108,7 @@
                                                     <a href="{{ asset('storage/' . $p->file_sktm) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> SKTM
                                                     </a>
-                                                    <a href="{{ asset('storage/' . $p->file_rekomendasi) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
-                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Rekomendasi
-                                                    </a>
+
                                                     <a href="{{ asset('storage/' . $p->file_transkrip) }}" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors">
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Transkrip
                                                     </a>

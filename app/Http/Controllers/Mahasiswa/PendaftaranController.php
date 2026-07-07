@@ -18,12 +18,10 @@ class PendaftaranController extends Controller {
             'nim' => 'required|string',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'jurusan' => 'required|string',
-            'ipk' => 'required|numeric',
             'email' => 'required|email',
             'no_hp' => 'required|string',
             'penghasilan_ortu' => 'required|in:< 500000,500000 - 1000000,1000000 - 1500000,1500000 - 2000000,> 2000000',
             'sktm' => 'required|mimes:pdf|max:2048',
-            'rekomendasi' => 'required|mimes:pdf|max:2048',
             'transkrip' => 'required|mimes:pdf|max:2048',
             'aktif_kuliah' => 'required|mimes:pdf|max:2048',
             'ktp' => 'required|mimes:pdf|max:2048',
@@ -33,7 +31,6 @@ class PendaftaranController extends Controller {
         ]);
         
         $validated['file_sktm'] = $request->file('sktm')->store('uploads/dokumen', 'public');
-        $validated['file_rekomendasi'] = $request->file('rekomendasi')->store('uploads/dokumen', 'public');
         $validated['file_transkrip'] = $request->file('transkrip')->store('uploads/dokumen', 'public');
         $validated['file_aktif_kuliah'] = $request->file('aktif_kuliah')->store('uploads/dokumen', 'public');
         $validated['file_ktp'] = $request->file('ktp')->store('uploads/dokumen', 'public');
@@ -54,12 +51,10 @@ class PendaftaranController extends Controller {
         
         $validated = $request->validate([
             'nama_lengkap' => 'required|string',
-            'ipk' => 'required|numeric',
             'email' => 'required|email',
             'no_hp' => 'required|string',
             'penghasilan_ortu' => 'required|in:< 500000,500000 - 1000000,1000000 - 1500000,1500000 - 2000000,> 2000000',
             'sktm' => 'nullable|mimes:pdf|max:2048',
-            'rekomendasi' => 'nullable|mimes:pdf|max:2048',
             'transkrip' => 'nullable|mimes:pdf|max:2048',
             'aktif_kuliah' => 'nullable|mimes:pdf|max:2048',
             'ktp' => 'nullable|mimes:pdf|max:2048',
@@ -71,10 +66,6 @@ class PendaftaranController extends Controller {
         if($request->hasFile('sktm')) {
             if($pendaftaran->file_sktm) Storage::disk('public')->delete($pendaftaran->file_sktm);
             $validated['file_sktm'] = $request->file('sktm')->store('uploads/dokumen', 'public');
-        }
-        if($request->hasFile('rekomendasi')) {
-            if($pendaftaran->file_rekomendasi) Storage::disk('public')->delete($pendaftaran->file_rekomendasi);
-            $validated['file_rekomendasi'] = $request->file('rekomendasi')->store('uploads/dokumen', 'public');
         }
         if($request->hasFile('transkrip')) {
             if($pendaftaran->file_transkrip) Storage::disk('public')->delete($pendaftaran->file_transkrip);

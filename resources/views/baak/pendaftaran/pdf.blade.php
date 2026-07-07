@@ -78,7 +78,7 @@
                 <th width="20%">Nama Pendaftar</th>
                 <th width="20%">Program Beasiswa</th>
                 <th width="15%">Jurusan</th>
-                <th width="10%" class="text-center">IPK</th>
+
                 <th width="15%" class="text-center">Status</th>
             </tr>
         </thead>
@@ -96,7 +96,7 @@
                     <td>{{ $p->nama_lengkap }}</td>
                     <td>{{ $p->beasiswa->nama_beasiswa }}</td>
                     <td>{{ $p->jurusan }}</td>
-                    <td class="text-center">{{ $p->ipk }}</td>
+
                     <td class="text-center">
                         <span class="badge {{ $badgeClass }}">{{ $p->status_verifikasi }}</span>
                     </td>

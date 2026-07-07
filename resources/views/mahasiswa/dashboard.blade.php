@@ -203,11 +203,6 @@
                                 </div>
                                 
                                 <div class="md:col-span-2">
-                                    <x-input-label for="ipk" value="IPK Terakhir" />
-                                    <x-text-input id="ipk" name="ipk" type="number" step="0.01" min="0" max="4" class="mt-1 block w-full md:w-1/2" required />
-                                </div>
-                                
-                                <div class="md:col-span-2">
                                     <x-input-label for="penghasilan_ortu" value="Penghasilan Orang Tua" />
                                     <select id="penghasilan_ortu" name="penghasilan_ortu" class="mt-1 block w-full md:w-1/2 border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm" required>
                                         <option value="">-- Pilih Penghasilan Orang Tua --</option>
@@ -227,10 +222,7 @@
                                         <x-input-label for="sktm" value="Surat Ket. Tidak Mampu" />
                                         <input type="file" id="sktm" name="sktm" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
                                     </div>
-                                    <div>
-                                        <x-input-label for="rekomendasi" value="Surat Rekomendasi" />
-                                        <input type="file" id="rekomendasi" name="rekomendasi" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>
-                                    </div>
+
                                     <div>
                                         <x-input-label for="transkrip" value="Transkrip Nilai" />
                                         <input type="file" id="transkrip" name="transkrip" accept="application/pdf" class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" required>

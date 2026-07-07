@@ -155,7 +155,6 @@ class DashboardController extends Controller
             'no_hp' => 'required|string',
             'jenis_kelamin' => 'required|string',
             'jurusan' => 'required|string',
-            'ipk' => 'required|numeric',
             'penghasilan_ortu' => 'required|string',
             'status_verifikasi' => 'required|string',
             'catatan_verifikasi' => 'nullable|string',

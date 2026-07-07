@@ -53,10 +53,7 @@
                                                     <x-text-input id="edit_nama_lengkap_{{ $p->id }}" name="nama_lengkap" type="text" class="mt-1 block w-full bg-gray-50" :value="$p->nama_lengkap" readonly />
                                                 </div>
                                                 <div class="grid grid-cols-2 gap-4">
-                                                    <div>
-                                                        <x-input-label for="edit_ipk_{{ $p->id }}" value="IPK" />
-                                                        <x-text-input id="edit_ipk_{{ $p->id }}" name="ipk" type="number" step="0.01" min="0" max="4" class="mt-1 block w-full" :value="$p->ipk" required />
-                                                    </div>
+
                                                     <div>
                                                         <x-input-label for="edit_no_hp_{{ $p->id }}" value="No HP" />
                                                         <x-text-input id="edit_no_hp_{{ $p->id }}" name="no_hp" type="text" class="mt-1 block w-full" :value="$p->no_hp" required />
@@ -89,10 +86,7 @@
                                                     <x-input-label for="edit_sktm_{{ $p->id }}" value="Surat Ket. Tidak Mampu Baru (PDF, Maks 2MB)" />
                                                     <input type="file" id="edit_sktm_{{ $p->id }}" name="sktm" accept="application/pdf" class="mt-1 block w-full text-sm">
                                                 </div>
-                                                <div>
-                                                    <x-input-label for="edit_rekomendasi_{{ $p->id }}" value="Surat Rekomendasi Baru (PDF, Maks 2MB)" />
-                                                    <input type="file" id="edit_rekomendasi_{{ $p->id }}" name="rekomendasi" accept="application/pdf" class="mt-1 block w-full text-sm">
-                                                </div>
+
                                                 <div>
                                                     <x-input-label for="edit_transkrip_{{ $p->id }}" value="Transkrip Nilai Baru (PDF, Maks 2MB)" />
                                                     <input type="file" id="edit_transkrip_{{ $p->id }}" name="transkrip" accept="application/pdf" class="mt-1 block w-full text-sm">

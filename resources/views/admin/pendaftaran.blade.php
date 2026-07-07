@@ -48,7 +48,7 @@
                             <td class="px-6 py-3 text-sm text-gray-500">{{ $pendaftaran->beasiswa->nama_beasiswa ?? 'N/A' }}</td>
                             <td class="px-6 py-3 text-sm text-gray-500">{{ $pendaftaran->status_verifikasi }}</td>
                             <td class="px-6 py-3 text-center space-x-2">
-                                <button type="button" @click="editData = { id: '{{ $pendaftaran->id }}', nama_lengkap: '{{ addslashes($pendaftaran->nama_lengkap) }}', nim: '{{ addslashes($pendaftaran->nim) }}', email: '{{ addslashes($pendaftaran->email) }}', no_hp: '{{ addslashes($pendaftaran->no_hp) }}', jenis_kelamin: '{{ $pendaftaran->jenis_kelamin }}', jurusan: '{{ addslashes($pendaftaran->jurusan) }}', ipk: '{{ $pendaftaran->ipk }}', penghasilan_ortu: '{{ $pendaftaran->penghasilan_ortu }}', status_verifikasi: '{{ $pendaftaran->status_verifikasi }}', catatan_verifikasi: '{{ addslashes($pendaftaran->catatan_verifikasi ?? '') }}' }; openEdit = true" class="text-blue-500 hover:text-blue-700 text-sm font-medium">Edit</button>
+                                <button type="button" @click="editData = { id: '{{ $pendaftaran->id }}', nama_lengkap: '{{ addslashes($pendaftaran->nama_lengkap) }}', nim: '{{ addslashes($pendaftaran->nim) }}', email: '{{ addslashes($pendaftaran->email) }}', no_hp: '{{ addslashes($pendaftaran->no_hp) }}', jenis_kelamin: '{{ $pendaftaran->jenis_kelamin }}', jurusan: '{{ addslashes($pendaftaran->jurusan) }}', penghasilan_ortu: '{{ $pendaftaran->penghasilan_ortu }}', status_verifikasi: '{{ $pendaftaran->status_verifikasi }}', catatan_verifikasi: '{{ addslashes($pendaftaran->catatan_verifikasi ?? '') }}' }; openEdit = true" class="text-blue-500 hover:text-blue-700 text-sm font-medium">Edit</button>
                                 
                                 <form action="{{ route('admin.pendaftaran.destroy', $pendaftaran->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus data pendaftaran ini? Data tidak bisa dikembalikan.');">
                                     @csrf
@@ -122,10 +122,6 @@
                                 <div>
                                     <label class="block text-gray-700 text-sm font-bold mb-2">Jurusan</label>
                                     <input type="text" name="jurusan" x-model="editData.jurusan" class="shadow-sm border-gray-300 rounded w-full py-2 px-3 text-gray-700" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 text-sm font-bold mb-2">IPK</label>
-                                    <input type="number" step="0.01" min="0" max="4" name="ipk" x-model="editData.ipk" class="shadow-sm border-gray-300 rounded w-full py-2 px-3 text-gray-700" required>
                                 </div>
                                 <div>
                                     <label class="block text-gray-700 text-sm font-bold mb-2">Penghasilan Orang Tua</label>
