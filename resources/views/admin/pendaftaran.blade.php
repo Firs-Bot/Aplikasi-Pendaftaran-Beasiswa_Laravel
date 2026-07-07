@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">Daftar Pendaftaran (Super Admin)</x-slot>
+    <x-slot name="header">Daftar Pendaftaran</x-slot>
     <div class="max-w-7xl mx-auto pb-10" x-data="{ openEdit: false, editData: {} }">
         
         <!-- Filter dan Pencarian -->

@@ -1,5 +1,5 @@
-﻿<x-app-layout>
-    <x-slot name="header">Super Admin Dashboard</x-slot>
+<x-app-layout>
+    <x-slot name="header">Dashboard Admin</x-slot>
     <div class="max-w-7xl mx-auto space-y-6 pb-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center">
