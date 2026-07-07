@@ -177,8 +177,29 @@
 
                                 <div>
                                     <x-input-label for="jurusan" value="Program Studi / Jurusan" />
-                                    <!-- Jika Master Mahasiswa memiliki jurusan, kita bisa isikan di sini, tetapi karena tidak ditarik dari Auth, biarkan form input atau tarik jika ada -->
-                                    <x-text-input id="jurusan" name="jurusan" type="text" class="mt-1 block w-full" required />
+                                    <select id="jurusan" name="jurusan" class="mt-1 block w-full border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm" required>
+                                        <option value="">-- Pilih Jurusan --</option>
+                                        <option value="S1 Pendidikan Bahasa dan Sastra Indonesia">S1 Pendidikan Bahasa dan Sastra Indonesia</option>
+                                        <option value="S1 Pendidikan Bahasa Inggris">S1 Pendidikan Bahasa Inggris</option>
+                                        <option value="S1 Pendidikan Matematika">S1 Pendidikan Matematika</option>
+                                        <option value="S1 Pendidikan Ekonomi">S1 Pendidikan Ekonomi</option>
+                                        <option value="S1 Pendidikan Biologi">S1 Pendidikan Biologi</option>
+                                        <option value="S1 Pendidikan Guru Sekolah Dasar (PGSD)">S1 Pendidikan Guru Sekolah Dasar (PGSD)</option>
+                                        <option value="S1 Manajemen">S1 Manajemen</option>
+                                        <option value="S1 Akuntansi">S1 Akuntansi</option>
+                                        <option value="S1 Bisnis Digital">S1 Bisnis Digital</option>
+                                        <option value="S1 Teknik Informatika">S1 Teknik Informatika</option>
+                                        <option value="S1 Sistem Informasi">S1 Sistem Informasi</option>
+                                        <option value="S1 Desain Komunikasi Visual (DKV)">S1 Desain Komunikasi Visual (DKV)</option>
+                                        <option value="S1 Teknik Sipil">S1 Teknik Sipil</option>
+                                        <option value="S1 Kehutanan">S1 Kehutanan</option>
+                                        <option value="S1 Ilmu Lingkungan">S1 Ilmu Lingkungan</option>
+                                        <option value="S1 Ilmu Hukum">S1 Ilmu Hukum</option>
+                                        <option value="S2 Magister Manajemen">S2 Magister Manajemen</option>
+                                        <option value="S2 Pendidikan Biologi">S2 Pendidikan Biologi</option>
+                                        <option value="S2 Pendidikan Ekonomi">S2 Pendidikan Ekonomi</option>
+                                        <option value="Program Pendidikan Profesi Guru (PPG)">Program Pendidikan Profesi Guru (PPG)</option>
+                                    </select>
                                 </div>
                                 
                                 <div class="md:col-span-2">
