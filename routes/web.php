@@ -28,15 +28,19 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
         
         Route::get('/users', [\App\Http\Controllers\Admin\DashboardController::class, 'users'])->name('users.index');
+        Route::put('/users/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'updateUser'])->name('users.update');
         Route::delete('/users/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'destroyUser'])->name('users.destroy');
         
         Route::get('/beasiswa', [\App\Http\Controllers\Admin\DashboardController::class, 'beasiswas'])->name('beasiswa.index');
+        Route::put('/beasiswa/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'updateBeasiswa'])->name('beasiswa.update');
         Route::delete('/beasiswa/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'destroyBeasiswa'])->name('beasiswa.destroy');
         
         Route::get('/pengumuman', [\App\Http\Controllers\Admin\DashboardController::class, 'pengumumans'])->name('pengumuman.index');
+        Route::put('/pengumuman/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'updatePengumuman'])->name('pengumuman.update');
         Route::delete('/pengumuman/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'destroyPengumuman'])->name('pengumuman.destroy');
         
         Route::get('/pendaftaran', [\App\Http\Controllers\Admin\DashboardController::class, 'pendaftarans'])->name('pendaftaran.index');
+        Route::put('/pendaftaran/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'updatePendaftaran'])->name('pendaftaran.update');
         Route::delete('/pendaftaran/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'destroyPendaftaran'])->name('pendaftaran.destroy');
     });
 
