@@ -1,6 +1,32 @@
-﻿<x-app-layout>
+<x-app-layout>
     <x-slot name="header">Daftar Pengguna (Super Admin)</x-slot>
     <div class="max-w-7xl mx-auto pb-10" x-data="{ openEdit: false, editData: {} }">
+        
+        <!-- Filter dan Pencarian -->
+        <form method="GET" action="{{ route('admin.users.index') }}" class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6 flex flex-col md:flex-row gap-4 items-end">
+            <div class="flex-1 w-full">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Cari Pengguna</label>
+                <input type="text" name="search" value="{{ request('search') }}" placeholder="Ketik nama atau NIM..." class="w-full border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm">
+            </div>
+            <div class="w-full md:w-48">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                <select name="role" class="w-full border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm">
+                    <option value="all">Semua Role</option>
+                    <option value="mahasiswa" {{ request('role') === 'mahasiswa' ? 'selected' : '' }}>Mahasiswa</option>
+                    <option value="baak" {{ request('role') === 'baak' ? 'selected' : '' }}>BAAK</option>
+                    <option value="admin" {{ request('role') === 'admin' ? 'selected' : '' }}>Super Admin</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" class="w-full md:w-auto bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-6 rounded-md transition-colors shadow-sm">Filter</button>
+            </div>
+            @if(request()->has('search') || request()->has('role'))
+            <div>
+                <a href="{{ route('admin.users.index') }}" class="w-full md:w-auto bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors inline-block text-center">Reset</a>
+            </div>
+            @endif
+        </form>
+
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">

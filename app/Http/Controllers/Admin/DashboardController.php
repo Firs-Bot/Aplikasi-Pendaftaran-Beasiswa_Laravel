@@ -22,27 +22,69 @@ class DashboardController extends Controller
         return view('admin.dashboard', compact('stats'));
     }
 
-    public function users()
+    public function users(Request $request)
     {
-        $users = User::latest()->get();
+        $query = User::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nama_lengkap', 'like', "%{$search}%")
+                  ->orWhere('nim_username', 'like', "%{$search}%");
+            });
+        }
+
+        if ($request->filled('role') && $request->role !== 'all') {
+            $query->where('role', $request->role);
+        }
+
+        $users = $query->latest()->get();
         return view('admin.users', compact('users'));
     }
 
-    public function beasiswas()
+    public function beasiswas(Request $request)
     {
-        $beasiswas = Beasiswa::latest()->get();
+        $query = Beasiswa::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nama_beasiswa', 'like', "%{$search}%")
+                  ->orWhere('penyedia', 'like', "%{$search}%");
+            });
+        }
+
+        $beasiswas = $query->latest()->get();
         return view('admin.beasiswa', compact('beasiswas'));
     }
 
-    public function pengumumans()
+    public function pengumumans(Request $request)
     {
-        $pengumumans = Pengumuman::latest()->get();
+        $query = Pengumuman::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where('judul', 'like', "%{$search}%");
+        }
+
+        $pengumumans = $query->latest()->get();
         return view('admin.pengumuman', compact('pengumumans'));
     }
 
-    public function pendaftarans()
+    public function pendaftarans(Request $request)
     {
-        $pendaftarans = Pendaftaran::with(['user', 'beasiswa'])->latest()->get();
+        $query = Pendaftaran::with(['user', 'beasiswa']);
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where('nama_lengkap', 'like', "%{$search}%");
+        }
+
+        if ($request->filled('status') && $request->status !== 'all') {
+            $query->where('status_verifikasi', $request->status);
+        }
+
+        $pendaftarans = $query->latest()->get();
         return view('admin.pendaftaran', compact('pendaftarans'));
     }
 
