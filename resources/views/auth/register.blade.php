@@ -39,7 +39,7 @@
                 <x-input-label for="nama_lengkap" :value="__('Nama Lengkap')" />
                 <x-text-input id="nama_lengkap" class="block mt-1 w-full bg-gray-100 cursor-not-allowed" type="text"
                     name="nama_lengkap" x-model="nama" required readonly autocomplete="name" />
-                <p class="text-xs text-gray-500 mt-1">Nama akan terisi otomatis jika NIM terdaftar di Data Master.</p>
+                <p class="text-xs text-gray-500 mt-1">Nama akan terisi otomatis jika NIM terdaftar di Data Akademik.</p>
                 <x-input-error :messages="$errors->get('nama_lengkap')" class="mt-2" />
             </div>
 

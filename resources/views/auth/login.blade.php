@@ -36,11 +36,7 @@
                 <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
             </label>
             
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500" href="{{ route('password.request') }}">
-                    {{ __('Lupa password?') }}
-                </a>
-            @endif
+
         </div>
 
         <div class="flex flex-col items-center justify-center mt-6 gap-4">
