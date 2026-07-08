@@ -19,7 +19,7 @@
         <aside class="w-64 bg-white border-r border-gray-200 flex flex-col h-full hidden md:flex shrink-0 shadow-sm z-10">
             <div class="h-16 flex items-center px-6 border-b border-gray-200 bg-yellow-600">
                 <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                    <img src="{{ asset('images/logo-uniku.png') }}" alt="Logo UNIKU" class="w-8 h-8 object-contain bg-white rounded p-0.5">
                     Beasiswa UNIKU
                 </a>
             </div>
