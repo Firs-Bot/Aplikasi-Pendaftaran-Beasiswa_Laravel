@@ -6,7 +6,7 @@ Aplikasi berbasis web untuk memfasilitasi proses publikasi informasi beasiswa, p
 
 ## 1. Informasi Proyek & URL
 
-- **URL Aplikasi Aktif:** `https://<isi-domain-aplikasi-anda>` *(ganti dengan URL domain/subdomain publik HTTPS setelah deployment)*
+- **URL Aplikasi Aktif:** `https://firmanz.site.je/`
 - **URL Repository Git:** [https://github.com/Firs-Bot/Aplikasi-Pendaftaran-Beasiswa_Laravel.git](https://github.com/Firs-Bot/Aplikasi-Pendaftaran-Beasiswa_Laravel.git)
 
 ---
