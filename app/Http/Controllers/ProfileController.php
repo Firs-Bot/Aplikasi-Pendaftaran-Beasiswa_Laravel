@@ -6,6 +6,7 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -26,13 +27,16 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $validated = $request->validated();
+        $validated['nama_lengkap'] = strip_tags($validated['nama_lengkap']);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
+        $request->user()->fill($validated);
         $request->user()->save();
+
+        Log::info('Pengguna memperbarui profil', [
+            'user_id' => $request->user()->id,
+            'ip' => $request->ip(),
+        ]);
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
@@ -47,6 +51,7 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+        $userId = $user->id;
 
         Auth::logout();
 
@@ -54,6 +59,11 @@ class ProfileController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
+        Log::info('Pengguna menghapus akun sendiri', [
+            'deleted_user_id' => $userId,
+            'ip' => $request->ip(),
+        ]);
 
         return Redirect::to('/');
     }

@@ -21,15 +21,17 @@ class ProfileTest extends TestCase
         $response->assertOk();
     }
 
-    public function test_profile_information_can_be_updated(): void
+    public function test_profile_information_can_be_updated_without_changing_nim_username(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'nim_username' => '20240810001',
+        ]);
 
         $response = $this
             ->actingAs($user)
             ->patch('/profile', [
-                'name' => 'Test User',
-                'email' => 'test@example.com',
+                'nama_lengkap' => 'Mahasiswa Uji',
+                'nim_username' => '99999999999',
             ]);
 
         $response
@@ -38,27 +40,8 @@ class ProfileTest extends TestCase
 
         $user->refresh();
 
-        $this->assertSame('Test User', $user->name);
-        $this->assertSame('test@example.com', $user->email);
-        $this->assertNull($user->email_verified_at);
-    }
-
-    public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged(): void
-    {
-        $user = User::factory()->create();
-
-        $response = $this
-            ->actingAs($user)
-            ->patch('/profile', [
-                'name' => 'Test User',
-                'email' => $user->email,
-            ]);
-
-        $response
-            ->assertSessionHasNoErrors()
-            ->assertRedirect('/profile');
-
-        $this->assertNotNull($user->refresh()->email_verified_at);
+        $this->assertSame('Mahasiswa Uji', $user->nama_lengkap);
+        $this->assertSame('20240810001', $user->nim_username);
     }
 
     public function test_user_can_delete_their_account(): void
@@ -68,7 +51,7 @@ class ProfileTest extends TestCase
         $response = $this
             ->actingAs($user)
             ->delete('/profile', [
-                'password' => 'password',
+                'password' => 'Password123',
             ]);
 
         $response

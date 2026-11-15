@@ -77,8 +77,8 @@
     <script>
         function nimValidator() {
             return {
-                nim: '{{ old("nim_username") }}',
-                nama: '{{ old("nama_lengkap") }}',
+                nim: @js(old('nim_username', '')),
+                nama: @js(old('nama_lengkap', '')),
                 isValidNIM: {{ old("nama_lengkap") ? 'true' : 'false' }},
                 isLoading: false,
                 errorMessage: '',
@@ -104,7 +104,7 @@
                     this.errorMessage = '';
                     this.successMessage = '';
 
-                    fetch(`/api/check-nim/${this.nim}`)
+                    fetch(`/api/check-nim/${encodeURIComponent(this.nim)}`)
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('NIM tidak terdaftar di data Akademik');

@@ -12,10 +12,10 @@
                 <label class="block text-sm font-medium text-gray-700 mb-1">Status Verifikasi</label>
                 <select name="status" class="w-full border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm">
                     <option value="all">Semua Status</option>
-                    <option value="Menunggu" {{ request('status') === 'Menunggu' ? 'selected' : '' }}>Menunggu</option>
-                    <option value="Sedang Ditinjau" {{ request('status') === 'Sedang Ditinjau' ? 'selected' : '' }}>Sedang Ditinjau</option>
-                    <option value="Lolos" {{ request('status') === 'Lolos' ? 'selected' : '' }}>Lolos</option>
-                    <option value="Ditolak" {{ request('status') === 'Ditolak' ? 'selected' : '' }}>Ditolak</option>
+                    <option value="MENUNGGU" {{ request('status') === 'MENUNGGU' ? 'selected' : '' }}>Menunggu</option>
+                    <option value="SEDANG DITINJAU" {{ request('status') === 'SEDANG DITINJAU' ? 'selected' : '' }}>Sedang Ditinjau</option>
+                    <option value="LOLOS" {{ request('status') === 'LOLOS' ? 'selected' : '' }}>Lolos</option>
+                    <option value="DITOLAK" {{ request('status') === 'DITOLAK' ? 'selected' : '' }}>Ditolak</option>
                 </select>
             </div>
             <div>
@@ -48,7 +48,7 @@
                             <td class="px-6 py-3 text-sm text-gray-500">{{ $pendaftaran->beasiswa->nama_beasiswa ?? 'N/A' }}</td>
                             <td class="px-6 py-3 text-sm text-gray-500">{{ $pendaftaran->status_verifikasi }}</td>
                             <td class="px-6 py-3 text-center space-x-2">
-                                <button type="button" @click="editData = { id: '{{ $pendaftaran->id }}', nama_lengkap: '{{ addslashes($pendaftaran->nama_lengkap) }}', nim: '{{ addslashes($pendaftaran->nim) }}', email: '{{ addslashes($pendaftaran->email) }}', no_hp: '{{ addslashes($pendaftaran->no_hp) }}', jenis_kelamin: '{{ $pendaftaran->jenis_kelamin }}', jurusan: '{{ addslashes($pendaftaran->jurusan) }}', penghasilan_ortu: '{{ $pendaftaran->penghasilan_ortu }}', status_verifikasi: '{{ $pendaftaran->status_verifikasi }}', catatan_verifikasi: '{{ addslashes($pendaftaran->catatan_verifikasi ?? '') }}' }; openEdit = true" class="text-blue-500 hover:text-blue-700 text-sm font-medium">Edit</button>
+                                <button type="button" @click="editData = @js(['id' => $pendaftaran->id, 'nama_lengkap' => $pendaftaran->nama_lengkap, 'nim' => $pendaftaran->nim, 'email' => $pendaftaran->email, 'no_hp' => $pendaftaran->no_hp, 'jenis_kelamin' => $pendaftaran->jenis_kelamin, 'jurusan' => $pendaftaran->jurusan, 'penghasilan_ortu' => $pendaftaran->penghasilan_ortu, 'status_verifikasi' => $pendaftaran->status_verifikasi]); openEdit = true" class="text-blue-500 hover:text-blue-700 text-sm font-medium">Edit</button>
                                 
                                 <form action="{{ route('admin.pendaftaran.destroy', $pendaftaran->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus data pendaftaran ini? Data tidak bisa dikembalikan.');">
                                     @csrf
@@ -82,15 +82,11 @@
                                 <div>
                                     <label class="block text-gray-700 text-sm font-bold mb-2">Status Verifikasi</label>
                                     <select name="status_verifikasi" x-model="editData.status_verifikasi" class="shadow-sm border-gray-300 rounded w-full py-2 px-3 text-gray-700" required>
-                                        <option value="Menunggu">Menunggu</option>
-                                        <option value="Sedang Ditinjau">Sedang Ditinjau</option>
-                                        <option value="Lolos">Lolos</option>
-                                        <option value="Ditolak">Ditolak</option>
+                                        <option value="MENUNGGU">Menunggu</option>
+                                        <option value="SEDANG DITINJAU">Sedang Ditinjau</option>
+                                        <option value="LOLOS">Lolos</option>
+                                        <option value="DITOLAK">Ditolak</option>
                                     </select>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 text-sm font-bold mb-2">Catatan Verifikasi</label>
-                                    <input type="text" name="catatan_verifikasi" x-model="editData.catatan_verifikasi" class="shadow-sm border-gray-300 rounded w-full py-2 px-3 text-gray-700">
                                 </div>
                             </div>
 
@@ -138,28 +134,32 @@
                             <h4 class="font-bold text-gray-800 mt-6 mb-2 border-b pb-1">Timpa Berkas Pendaftaran <span class="text-xs font-normal text-gray-500">(Format: PDF, Kosongkan jika tidak ada perubahan)</span></h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-gray-700 text-sm mb-1">Surat Pernyataan / Lampiran Utama</label>
-                                    <input type="file" name="file_lampiran" accept=".pdf" class="text-sm w-full">
+                                    <label class="block text-gray-700 text-sm mb-1">Surat Keterangan Tidak Mampu (SKTM)</label>
+                                    <input type="file" name="file_sktm" accept=".pdf" class="text-sm w-full">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm mb-1">Transkrip Nilai</label>
+                                    <input type="file" name="file_transkrip" accept=".pdf" class="text-sm w-full">
                                 </div>
                                 <div>
                                     <label class="block text-gray-700 text-sm mb-1">Surat Aktif Kuliah</label>
-                                    <input type="file" name="surat_aktif" accept=".pdf" class="text-sm w-full">
+                                    <input type="file" name="file_aktif_kuliah" accept=".pdf" class="text-sm w-full">
                                 </div>
                                 <div>
                                     <label class="block text-gray-700 text-sm mb-1">KTP</label>
-                                    <input type="file" name="ktp" accept=".pdf" class="text-sm w-full">
+                                    <input type="file" name="file_ktp" accept=".pdf" class="text-sm w-full">
                                 </div>
                                 <div>
                                     <label class="block text-gray-700 text-sm mb-1">KTM</label>
-                                    <input type="file" name="ktm" accept=".pdf" class="text-sm w-full">
+                                    <input type="file" name="file_ktm" accept=".pdf" class="text-sm w-full">
                                 </div>
                                 <div>
                                     <label class="block text-gray-700 text-sm mb-1">KRS</label>
-                                    <input type="file" name="krs" accept=".pdf" class="text-sm w-full">
+                                    <input type="file" name="file_krs" accept=".pdf" class="text-sm w-full">
                                 </div>
                                 <div>
                                     <label class="block text-gray-700 text-sm mb-1">Surat Tidak Menerima Beasiswa Lain</label>
-                                    <input type="file" name="surat_sktm" accept=".pdf" class="text-sm w-full">
+                                    <input type="file" name="file_tidak_menerima_beasiswa" accept=".pdf" class="text-sm w-full">
                                 </div>
                             </div>
                         </div>
