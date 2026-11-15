@@ -31,19 +31,26 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'nim_username' => ['required', 'string', 'max:255', 'unique:'.User::class, 'exists:master_mahasiswas,nim'],
-            'password' => ['required', 'confirmed'],
+            'nim_username' => ['required', 'string', 'max:30', 'regex:/^[A-Za-z0-9]+$/', 'unique:'.User::class, 'exists:master_mahasiswas,nim'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ], [
-            'nim_username.exists' => 'NIM Anda belum terdaftar di Sistem Akademik Master (Tidak Valid).'
+            'nim_username.exists' => 'NIM Anda belum terdaftar di Sistem Akademik Master (Tidak Valid).',
+            'nim_username.regex' => 'Format NIM hanya boleh berisi huruf dan angka.',
         ]);
 
-        $master = \App\Models\MasterMahasiswa::where('nim', $request->nim_username)->first();
+        $master = \App\Models\MasterMahasiswa::where('nim', $request->nim_username)->firstOrFail();
 
         $user = User::create([
-            'nama_lengkap' => $master->nama_lengkap,
-            'nim_username' => $request->nim_username,
+            'nama_lengkap' => strip_tags($master->nama_lengkap),
+            'nim_username' => $master->nim,
             'password' => Hash::make($request->password),
             'role' => 'mahasiswa',
+        ]);
+
+        \Illuminate\Support\Facades\Log::info('Registrasi akun mahasiswa baru', [
+            'user_id' => $user->id,
+            'nim_username' => $user->nim_username,
+            'ip' => $request->ip(),
         ]);
 
         event(new Registered($user));

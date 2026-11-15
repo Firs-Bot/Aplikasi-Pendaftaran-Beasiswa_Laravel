@@ -58,10 +58,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [MahasiswaDashboard::class, 'index'])->name('dashboard');
         Route::resource('pendaftaran', MahasiswaPendaftaran::class)->only(['index', 'store', 'update']);
     });
+
+    // Protected Document Download Route (Admin, BAAK, or Owner Mahasiswa)
+    Route::get('/pendaftaran/{pendaftaran}/dokumen/{jenis}', [MahasiswaPendaftaran::class, 'downloadDokumen'])
+        ->name('pendaftaran.dokumen');
 });
 
-Route::get('/api/check-nim/{nim}', function ($nim) {
-    $mahasiswa = \App\Models\MasterMahasiswa::where('nim', $nim)->first();
+Route::middleware('throttle:10,1')->get('/api/check-nim/{nim}', function (string $nim) {
+    if (! preg_match('/^[A-Za-z0-9]{1,30}$/', $nim)) {
+        return response()->json(['success' => false, 'message' => 'Format NIM tidak valid'], 422);
+    }
+
+    $mahasiswa = \App\Models\MasterMahasiswa::where('nim', $nim)->first(['nim', 'nama_lengkap']);
     if ($mahasiswa) {
         return response()->json(['success' => true, 'data' => $mahasiswa]);
     }

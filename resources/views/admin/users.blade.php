@@ -52,7 +52,7 @@
                                 </span>
                             </td>
                             <td class="px-6 py-3 text-center space-x-2">
-                                <button type="button" @click="editData = { id: '{{ $user->id }}', nama_lengkap: '{{ addslashes($user->nama_lengkap) }}', nim_username: '{{ addslashes($user->nim_username) }}', role: '{{ $user->role }}' }; openEdit = true" class="text-blue-500 hover:text-blue-700 text-sm font-medium">Edit</button>
+                                <button type="button" @click="editData = @js(['id' => $user->id, 'nama_lengkap' => $user->nama_lengkap, 'nim_username' => $user->nim_username, 'role' => $user->role]); openEdit = true" class="text-blue-500 hover:text-blue-700 text-sm font-medium">Edit</button>
                                 
                                 @if($user->role !== 'admin')
                                 <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus pengguna ini?');">

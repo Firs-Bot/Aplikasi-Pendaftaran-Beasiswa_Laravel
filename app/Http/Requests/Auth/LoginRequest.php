@@ -28,8 +28,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nim_username' => ['required', 'string'],
-            'password' => ['required', 'string'],
+            'nim_username' => ['required', 'string', 'max:100'],
+            'password' => ['required', 'string', 'max:255'],
         ];
     }
 
@@ -44,6 +44,11 @@ class LoginRequest extends FormRequest
 
         if (! Auth::attempt($this->only('nim_username', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
+
+            \Illuminate\Support\Facades\Log::warning('Percobaan login gagal', [
+                'nim_username' => $this->string('nim_username')->toString(),
+                'ip' => $this->ip(),
+            ]);
 
             throw ValidationException::withMessages([
                 'nim_username' => trans('auth.failed'),

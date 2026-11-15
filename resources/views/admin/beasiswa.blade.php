@@ -36,7 +36,7 @@
                             <td class="px-6 py-3 text-sm font-medium text-gray-900">{{ $beasiswa->nama_beasiswa }}</td>
                             <td class="px-6 py-3 text-sm text-gray-500">{{ $beasiswa->penyedia }}</td>
                             <td class="px-6 py-3 text-center space-x-2">
-                                <button type="button" @click="editData = { id: '{{ $beasiswa->id }}', nama_beasiswa: '{{ addslashes($beasiswa->nama_beasiswa) }}', penyedia: '{{ addslashes($beasiswa->penyedia) }}', deskripsi: '{{ addslashes(str_replace(array("\r", "\n"), array("\\r", "\\n"), $beasiswa->deskripsi)) }}' }; openEdit = true" class="text-blue-500 hover:text-blue-700 text-sm font-medium">Edit</button>
+                                <button type="button" @click="editData = @js(['id' => $beasiswa->id, 'nama_beasiswa' => $beasiswa->nama_beasiswa, 'penyedia' => $beasiswa->penyedia, 'deskripsi' => $beasiswa->deskripsi]); openEdit = true" class="text-blue-500 hover:text-blue-700 text-sm font-medium">Edit</button>
                                 
                                 <form action="{{ route('admin.beasiswa.destroy', $beasiswa->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus beasiswa ini? Semua pendaftaran terkait juga bisa terhapus.');">
                                     @csrf

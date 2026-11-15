@@ -75,7 +75,7 @@
                                 @if($pendaftarans->whereIn('status_verifikasi', ['MENUNGGU', 'SEDANG DITINJAU'])->count() > 0)
                                     <button type="button" class="w-full bg-gray-100 text-gray-400 py-2.5 rounded-lg font-medium text-sm cursor-not-allowed" disabled>Sedang Memiliki Antrean Verifikasi</button>
                                 @else
-                                    <button type="button" @click="openRegisterModal('{{ $b->id }}', '{{ addslashes($b->nama_beasiswa) }}')" class="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 py-2.5 rounded-lg font-medium text-sm transition-colors shadow-sm flex justify-center items-center gap-2">
+                                    <button type="button" @click="openRegisterModal(@js($b->id), @js($b->nama_beasiswa))" class="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 py-2.5 rounded-lg font-medium text-sm transition-colors shadow-sm flex justify-center items-center gap-2">
                                         Daftar Beasiswa Ini
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                     </button>

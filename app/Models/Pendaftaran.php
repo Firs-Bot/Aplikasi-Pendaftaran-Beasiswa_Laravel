@@ -8,7 +8,7 @@ class Pendaftaran extends Model
 {
     protected $fillable = [
         'user_id', 'beasiswa_id', 'nama_lengkap', 'nim', 'jenis_kelamin', 'jurusan', 'email', 'no_hp',
-        'file_sktm', 'file_aktif_kuliah', 'file_ktp', 'file_ktm', 'file_krs', 'file_tidak_menerima_beasiswa', 'penghasilan_ortu', 'status_verifikasi', 'catatan_verifikasi', 'file_transkrip'
+        'file_sktm', 'file_aktif_kuliah', 'file_ktp', 'file_ktm', 'file_krs', 'file_tidak_menerima_beasiswa', 'penghasilan_ortu', 'status_verifikasi', 'file_transkrip'
     ];
 
     public function user() {
