@@ -1,4 +1,4 @@
-# Sistem Informasi Pendaftaran & Pengelolaan Beasiswa Universitas Kuningan (Beasiswa UNIKU)
+# Aplikasi Pendaftaran Beasiswa berbasis WEB
 
 Aplikasi berbasis web untuk memfasilitasi proses publikasi informasi beasiswa, pendaftaran beasiswa oleh mahasiswa, verifikasi berkas persyaratan oleh pihak Biro Administrasi Akademik dan Kemahasiswaan (BAAK), pencetakan laporan PDF, serta pengelolaan data master oleh Super Admin di lingkungan **Universitas Kuningan (UNIKU)**.
 
