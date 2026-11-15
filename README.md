@@ -62,7 +62,6 @@ Aplikasi berbasis web untuk memfasilitasi proses publikasi informasi beasiswa, p
 5. **Keamanan Tambahan:**
    - **CSRF Protection:** Token `@csrf` diterapkan pada seluruh form state-changing (`POST`, `PUT`, `PATCH`, `DELETE`).
    - **Rate Limiting:** Pembatasan percobaan pada endpoint login (`LoginRequest` 5 percobaan gagal & middleware `throttle:10,1`), registrasi (`throttle:6,1`), serta API pengecekan NIM (`throttle:10,1`).
-   - **HTTP Security Headers:** Middleware global [`SecurityHeaders`](app/Http/Middleware/SecurityHeaders.php) dan `.htaccess` menambahkan header `Content-Security-Policy`, `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `X-XSS-Protection: 1; mode=block`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`, dan `Strict-Transport-Security` (HSTS).
    - **Log Aktivitas (Audit Trail):** Pencatatan aktivitas autentikasi (login berhasil/gagal, logout, registrasi), perubahan data CRUD/verifikasi, dan percobaan akses dokumen tidak sah (IDOR) ke `storage/logs/laravel.log`.
 
 ---
