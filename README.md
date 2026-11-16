@@ -107,7 +107,7 @@ Aplikasi berbasis web untuk memfasilitasi proses publikasi informasi beasiswa, p
 
 ---
 
-## 6. Konfigurasi Environment Variable (Tanpa Nilai Rahasia)
+## 6. Konfigurasi Environment Variable
 
 Berikut adalah variabel lingkungan utama yang perlu dikonfigurasi pada file `.env` (tanpa menyertakan nilai kredensial/rahasia):
 
